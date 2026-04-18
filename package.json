@@ -1,0 +1,9 @@
+{
+  "name": "ghristu-central-club-dashboard",
+  "version": "1.0.0",
+  "description": "GHRISTU Central Club Dashboard - Simple HTML, CSS, JavaScript",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  }
+}
