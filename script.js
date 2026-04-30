@@ -19,56 +19,17 @@ const clubs = [
   { id: 10, name: "Cultural Club", emoji: "🎨", tag: "Cultural", description: "Dance, food festivals, traditional art, and inter-cultural exchange.", members: 89 }
 ];
 
-// Cultural Club Members
-const culturalClubMembers = [
-  { position: "Secretary", name: "Sahil Parihar" },
-  { position: "Deputy Secretary", name: "Shraddha Shukla" },
-  { position: "Treasurer", name: "Gauri Ghode" },
-  { position: "Photography Incharge", name: "Adith Nair" },
-  { position: "Decoration Incharge", name: "Yogita Raut" },
-  { position: "Students Coordinator", name: "Siddhesh Pardeshi" },
-  { position: "AV Incharge", name: "Satish Magar" },
-  { position: "Member", name: "Chaitanya Gautam" },
-  { position: "Member", name: "Vaibhavi Kotkar" },
-  { position: "Member", name: "Vikas Hambarde" },
-  { position: "Member", name: "Omkar Shinde" },
-  { position: "Member", name: "Pranav Bankar" },
-  { position: "Member", name: "Aditya Avhad" },
-  { position: "Member", name: "Shavani Shinde" },
-  { position: "Member", name: "Nikhil Gade" }
-];
 
-// Developers Club Members
-const developersClubMembers = [
-  { position: "Secretary", name: "Devansh" },
-  { position: "Outreach & Partnerships Team", name: "Rushikesh" },
-  { position: "Event & Workshop Team", name: "Vikas Kumar" },
-  { position: "Student Coordinator", name: "Aniket" },
-  { position: "Vice-Secretary", name: "Sahil" },
-  { position: "Event & Workshop Team", name: "Chandana" },
-  { position: "Student Coordinator", name: "Uday" },
-  { position: "Decoration", name: "Pragathi" },
-  { position: "Decoration", name: "Jeenu" },
-  { position: "Build & Test Team Coordinator", name: "Om Tripathi" }
-];
 
 const events = [
-  { id: 1, day: "20", month: "APR", name: "Drone Racing Championship", venue: "Sports Ground", organiser: "Drone Club", time: "10 AM – 4 PM", description: "High-speed drone racing with cash prizes and trophies.", badge: "Applications Open", badgeType: "open", applicationLink: "" },
-  { id: 2, day: "22", month: "APR", name: "TechNest Hackathon 2025", venue: "Lab Block 3", organiser: "TechNest Club", time: "9 AM (24 hrs)", description: "24-hour hackathon — build, ship, win.", badge: "Applications Open", badgeType: "open", applicationLink: "" },
+  { id: 1, day: "20", month: "APR", name: "Drone Racing Championship", venue: "Sports Ground", organiser: "Drone Club", time: "10 AM – 4 PM", description: "High-speed drone racing with cash prizes and trophies.", badge: "Applications Open", badgeType: "open", applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSc31644kxQYzo4LKKzq2ST7De2Jq4MXCqp0dXtDWfWYIFf59Q/viewform?usp=header" },
+  { id: 2, day: "22", month: "APR", name: "TechNest Hackathon 2025", venue: "Lab Block 3", organiser: "TechNest Club", time: "9 AM (24 hrs)", description: "24-hour hackathon — build, ship, win.", badge: "Applications Open", badgeType: "open", applicationLink: "https://docs.google.com/forms/d/e/1FAIpQLSdfzduQiIAt4ybzdWdQHiO_MCbrkv2xCXVtODTkoY6aTO7qIA/viewform?usp=header" },
   { id: 3, day: "25", month: "APR", name: "Photography Contest Deadline", venue: "Online Submission", organiser: "Pixel Photography Club", time: "11:59 PM", description: "Submit your best campus shots before the deadline.", badge: "Deadline", badgeType: "deadline", applicationLink: null },
   { id: 4, day: "28", month: "APR", name: '"Echoes" Drama Performance', venue: "Auditorium Block B", organiser: "Ignatius Drama Club", time: "6 PM", description: "An original stage play exploring identity and belonging.", badge: "Free Entry", badgeType: "free", applicationLink: null },
   { id: 5, day: "03", month: "MAY", name: "International Cultural Day", venue: "Main Ground", organiser: "Cultural Club", time: "All Day", description: "A celebration of diversity — food, dance, art from around the world.", badge: "Open to All", badgeType: "free", applicationLink: null }
 ];
 
-const timetable = [
-  { day: "Monday", club: "TechNest Club", activity: "Coding Workshop", time: "4:00 – 5:30 PM", venue: "Lab Block 3, Room 12" },
-  { day: "Tuesday", club: "Cultural Club", activity: "Dance & Music", time: "5:00 – 6:30 PM", venue: "Cultural Hall" },
-  { day: "Wednesday", club: "Drone Club", activity: "Flight Training", time: "3:30 – 5:30 PM", venue: "Sports Ground" },
-  { day: "Wednesday", club: "Ignatius Drama Club", activity: "Script Reading", time: "5:00 – 7:00 PM", venue: "Auditorium Block B" },
-  { day: "Thursday", club: "Pixel Photography Club", activity: "Photo Walk", time: "4:00 – 5:30 PM", venue: "Campus-wide" },
-  { day: "Friday", club: "TechNest Club", activity: "Project Showcase", time: "3:00 – 5:00 PM", venue: "Lab Block 3, Room 10" },
-  { day: "Saturday", club: "Cultural Club", activity: "Rehearsals", time: "10:00 AM – 1:00 PM", venue: "Cultural Hall" }
-];
+
 
 const announcements = [
   "🏁 Drone Racing Championship entries close April 18 — register now!",
@@ -88,10 +49,10 @@ document.addEventListener("DOMContentLoaded", function() {
   initTicker();
   renderClubs();
   renderEvents();
-  renderTimetable();
   updateStats();
   initNavigation();
   initFormHandling();
+  showNotifications();
 });
 
 // Video autoplay handler - Simple version
@@ -123,8 +84,6 @@ function initNavigation() {
       // Show/hide pages
       document.getElementById("clubsPage").classList.add("d-none");
       document.getElementById("eventsPage").classList.add("d-none");
-      document.getElementById("membersPage").classList.add("d-none");
-      document.getElementById("timetablePage").classList.add("d-none");
       
       // Show/hide video banner (only on clubs page)
       if (page === "clubs") {
@@ -133,20 +92,8 @@ function initNavigation() {
       } else if (page === "events") {
         document.getElementById("eventsPage").classList.remove("d-none");
         videoSection.classList.add("d-none");
-      } else if (page === "members") {
-        document.getElementById("membersPage").classList.remove("d-none");
-        videoSection.classList.add("d-none");
-      } else if (page === "timetable") {
-        document.getElementById("timetablePage").classList.remove("d-none");
-        videoSection.classList.add("d-none");
       }
     });
-  });
-  
-  // Members page club select
-  document.getElementById("memberClubSelect").addEventListener("change", function() {
-    var selectedClub = this.value;
-    renderMembersPage(selectedClub);
   });
 }
 
@@ -174,49 +121,6 @@ function renderClubs() {
             <div class="d-flex justify-content-between align-items-center mt-2">\
               <span class="members-count">👥 ' + club.members + ' members</span>\
               <button class="btn btn-primary btn-sm" onclick="openApplicationModal(\'' + club.name + '\')">Apply to Join</button>\
-            </div>\
-          </div>\
-        </div>\
-      </div>';
-  });
-  
-  container.innerHTML = html;
-}
-
-// Render Members Page
-function renderMembersPage(clubName) {
-  var container = document.getElementById("membersPageContainer");
-  
-  if (!clubName) {
-    container.innerHTML = '<div class="col-12 text-center text-muted py-5"><p>Select a club above to view its members.</p></div>';
-    return;
-  }
-  
-  var members = [];
-  if (clubName === "Cultural Club") {
-    members = culturalClubMembers;
-  } else if (clubName === "Developer Club") {
-    members = developersClubMembers;
-  }
-  
-  if (members.length === 0) {
-    container.innerHTML = '<div class="col-12 text-center text-muted py-5"><p>No members data available for this club.</p></div>';
-    return;
-  }
-  
-  var html = '';
-  members.forEach(function(member) {
-    var isLeader = member.position !== "Member";
-    var badgeClass = isLeader ? "bg-primary" : "bg-secondary";
-    
-    html += '\
-      <div class="col-md-6 col-lg-4">\
-        <div class="member-card p-3 rounded border">\
-          <div class="d-flex align-items-center gap-3">\
-            <div class="member-avatar">' + member.name.charAt(0).toUpperCase() + '</div>\
-            <div>\
-              <h6 class="mb-1 fw-bold">' + member.name + '</h6>\
-              <span class="badge ' + badgeClass + '">' + member.position + '</span>\
             </div>\
           </div>\
         </div>\
@@ -265,23 +169,34 @@ function renderEvents() {
   container.innerHTML = html;
 }
 
-// Render Timetable
-function renderTimetable() {
-  var tbody = document.getElementById("timetableBody");
-  var html = "";
+// Show Notifications
+function showNotifications() {
+  var container = document.getElementById("notificationContainer");
+  if (!container) return;
   
-  timetable.forEach(function(row) {
-    html += '\
-      <tr>\
-        <td class="fw-medium">' + row.day + '</td>\
-        <td>' + row.club + '</td>\
-        <td class="text-muted">' + row.activity + '</td>\
-        <td class="text-muted">' + row.time + '</td>\
-        <td class="text-muted">' + row.venue + '</td>\
-      </tr>';
+  var notifications = [
+    "Tomorrow last date of registration is there, apply now!",
+    "New events have been added to the calendar."
+  ];
+  
+  notifications.forEach(function(msg, index) {
+    setTimeout(function() {
+      var notif = document.createElement("div");
+      notif.className = "notification-banner";
+      notif.innerHTML = '\
+        <p>' + msg + '</p>\
+        <button class="btn-close-notification">&times;</button>\
+      ';
+      
+      var closeBtn = notif.querySelector(".btn-close-notification");
+      closeBtn.addEventListener("click", function() {
+        notif.style.opacity = '0';
+        setTimeout(function() { notif.remove(); }, 200);
+      });
+      
+      container.appendChild(notif);
+    }, 1000 + (index * 1500)); // Show with stagger
   });
-  
-  tbody.innerHTML = html;
 }
 
 // Update Stats

@@ -22,8 +22,6 @@
       <div class="d-flex gap-2">
         <button class="btn btn-primary btn-sm nav-btn active" data-page="clubs">Clubs</button>
         <button class="btn btn-outline-secondary btn-sm nav-btn" data-page="events">Events</button>
-        <button class="btn btn-outline-secondary btn-sm nav-btn" data-page="members">Members</button>
-        <button class="btn btn-outline-secondary btn-sm nav-btn" data-page="timetable">Timetable</button>
       </div>
     </div>
   </nav>
@@ -106,47 +104,10 @@
       </div>
     </div>
 
-    <!-- Members Page -->
-    <div id="membersPage" class="page-content d-none">
-      <h2 class="fw-bold mb-4">Club Members</h2>
-      <p class="text-muted mb-4">View the team members of our active clubs.</p>
-      
-      <!-- Club Selection -->
-      <div class="mb-4">
-        <select class="form-select" id="memberClubSelect" style="max-width: 300px;">
-          <option value="">Select a Club</option>
-          <option value="Cultural Club">Cultural Club</option>
-          <option value="Developer Club">Developer Club</option>
-        </select>
-      </div>
-      
-      <!-- Members Grid -->
-      <div class="row g-3" id="membersPageContainer">
-        <div class="col-12 text-center text-muted py-5">
-          <p>Select a club above to view its members.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Timetable Page -->
-    <div id="timetablePage" class="page-content d-none">
-      <h2 class="fw-bold mb-4">Weekly Club Meeting Schedule</h2>
-      <div class="table-responsive shadow-sm rounded">
-        <table class="table table-striped mb-0">
-          <thead class="table-primary">
-            <tr>
-              <th>Day</th>
-              <th>Club</th>
-              <th>Activity</th>
-              <th>Time</th>
-              <th>Venue</th>
-            </tr>
-          </thead>
-          <tbody id="timetableBody"></tbody>
-        </table>
-      </div>
-    </div>
   </main>
+
+  <!-- Notification Container -->
+  <div id="notificationContainer" class="notification-container"></div>
 
   <!-- Application Modal -->
   <div class="modal fade" id="applicationModal" tabindex="-1" aria-hidden="true">
