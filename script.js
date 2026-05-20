@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
   updateStats();
   initNavigation();
   initFormHandling();
+  initContactPage();
   showNotifications();
 });
 
@@ -84,6 +85,7 @@ function initNavigation() {
       // Show/hide pages
       document.getElementById("clubsPage").classList.add("d-none");
       document.getElementById("eventsPage").classList.add("d-none");
+      document.getElementById("contactPage").classList.add("d-none");
       
       // Show/hide video banner (only on clubs page)
       if (page === "clubs") {
@@ -91,6 +93,9 @@ function initNavigation() {
         videoSection.classList.remove("d-none");
       } else if (page === "events") {
         document.getElementById("eventsPage").classList.remove("d-none");
+        videoSection.classList.add("d-none");
+      } else if (page === "contact") {
+        document.getElementById("contactPage").classList.remove("d-none");
         videoSection.classList.add("d-none");
       }
     });
@@ -432,4 +437,64 @@ function showSuccess() {
   document.getElementById("modalBody").classList.add("d-none");
   document.getElementById("successMessage").classList.remove("d-none");
   document.getElementById("successClubName").textContent = currentClub;
+}
+
+// Contact page address randomizer
+function initContactPage() {
+  const randomBtn = document.getElementById("randomAddressBtn");
+  if (!randomBtn) return;
+  
+  const campuses = [
+    {
+      title: "Yerawada (HQ) Campus",
+      icon: "🏛️",
+      address: "Nyati Unitree East Wing, near Deepak Fertilizers Building, Airport Road, Shastri Nagar, Yerawada, Pune - 411006, Maharashtra, India"
+    },
+    {
+      title: "Wagholi Campus",
+      icon: "🏫",
+      address: "Gate No. 1200, Domkhel Road, Wagholi, Pune - 412207, Maharashtra, India"
+    },
+    {
+      title: "Nagpur Campus",
+      icon: "🏢",
+      address: "Shradha House, 345, Kingsway, Nagpur - 440001, Maharashtra, India"
+    },
+    {
+      title: "Jalgaon Campus",
+      icon: "⛺",
+      address: "Gate No. 57, Shirsoli Road, Mohadi, Jalgaon - 425002, Maharashtra, India"
+    },
+    {
+      title: "Amravati Campus",
+      icon: "🏗️",
+      address: "Anjangaon Bari Road, Amravati - 444602, Maharashtra, India"
+    }
+  ];
+
+  let currentIdx = 0;
+  
+  randomBtn.addEventListener("click", function() {
+    let newIdx;
+    do {
+      newIdx = Math.floor(Math.random() * campuses.length);
+    } while (newIdx === currentIdx && campuses.length > 1);
+    
+    currentIdx = newIdx;
+    const campus = campuses[currentIdx];
+    
+    const iconEl = document.getElementById("addressIcon");
+    const titleEl = document.getElementById("addressTitle");
+    const detailEl = document.getElementById("addressDetail");
+    
+    if (iconEl) {
+      iconEl.classList.remove("pulse");
+      void iconEl.offsetWidth; // trigger reflow
+      iconEl.classList.add("pulse");
+      iconEl.textContent = campus.icon;
+    }
+    
+    if (titleEl) titleEl.textContent = campus.title;
+    if (detailEl) detailEl.textContent = campus.address;
+  });
 }

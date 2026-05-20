@@ -22,6 +22,7 @@
       <div class="d-flex gap-2">
         <button class="btn btn-primary btn-sm nav-btn active" data-page="clubs">Clubs</button>
         <button class="btn btn-outline-secondary btn-sm nav-btn" data-page="events">Events</button>
+        <button class="btn btn-outline-secondary btn-sm nav-btn" data-page="contact">Contact</button>
       </div>
     </div>
   </nav>
@@ -99,6 +100,60 @@
             <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contactPage" class="page-content d-none">
+      <h2 class="fw-bold mb-4">Contact Us</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm p-4">
+            <div class="card-body d-flex flex-column justify-content-between p-0">
+              <div>
+                <h4 class="fw-bold text-primary mb-4">Get in Touch</h4>
+                
+                <div class="d-flex align-items-center mb-4">
+                  <div class="fs-2 me-3">📞</div>
+                  <div>
+                    <h5 class="fw-bold mb-0">Phone</h5>
+                    <p class="text-muted mb-0">+91 20 6718 1111 / +91 20 6718 1112</p>
+                  </div>
+                </div>
+                
+                <div class="d-flex align-items-center mb-4">
+                  <div class="fs-2 me-3">✉️</div>
+                  <div>
+                    <h5 class="fw-bold mb-0">Email</h5>
+                    <p class="text-muted mb-0">admissions@ghristu.edu.in</p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center mb-4">
+                  <div class="fs-2 me-3">🕒</div>
+                  <div>
+                    <h5 class="fw-bold mb-0">Working Hours</h5>
+                    <p class="text-muted mb-0">Monday - Saturday: 9:00 AM - 5:00 PM</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="mt-2">
+                <button class="btn btn-primary w-100 py-2 fw-medium" id="randomAddressBtn">Load Random Campus Address</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-6">
+          <div class="card h-100 shadow-sm p-4 text-center d-flex align-items-center justify-content-center bg-white border">
+            <div class="card-body p-0 d-flex flex-column justify-content-center align-items-center w-100" id="addressCardBody">
+              <div class="fs-1 mb-3 text-primary animate-icon" id="addressIcon">🏛️</div>
+              <h4 class="fw-bold mb-3" id="addressTitle">Yerawada (HQ) Campus</h4>
+              <p class="text-muted px-3 mb-0" id="addressDetail">Nyati Unitree East Wing, near Deepak Fertilizers Building, Airport Road, Shastri Nagar, Yerawada, Pune - 411006, Maharashtra, India</p>
+            </div>
           </div>
         </div>
       </div>
