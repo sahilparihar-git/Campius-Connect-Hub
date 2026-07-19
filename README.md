@@ -31,47 +31,5 @@ npx serve .
 python -m http.server 8000
 ```
 
-## ⬆️ Uploading to GitHub
-
-Follow these steps to upload your project to a new GitHub repository:
-
-1. **Initialize Git**:
-   ```bash
-   git init
-   ```
-
-2. **Stage All Files**:
-   ```bash
-   git add .
-   ```
-
-3. **Commit Changes**:
-   ```bash
-   git commit -m "Final version of Club Dashboard"
-   ```
-
-4. **Add Remote Origin**:
-   ```bash
-   git remote add origin https://github.com/your-username/your-repo-name.git
-   ```
-
-5. **Push to Main**:
-   ```bash
-   git push -u origin main
-   ```
-
-## 📁 Project Structure
-
-```text
-/
-├── index.html          # Main dashboard interface
-├── styles.css          # Core design and layout system
-├── script.js           # Dashboard logic and API handling
-├── package.json        # Project metadata and scripts
-├── resources/          # Static assets (Video, Images)
-│   └── university-video.mp4
-└── README.md           # This file
-```
-
 ---
 *Developed for GHRISTU Central Club Dashboard.*
